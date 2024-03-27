@@ -15,13 +15,16 @@ jobs:
     steps:
       - name: Builds dotnet project
         run: dotnet build
+        working-directory: ActionsKataExample
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Runs builded dotnet project
         run: dotnet run
+        working-directory: ActionsKataExample
   publish:
     runs-on: ubuntu-latest
     steps:
       - name: Publishes dotnet project
         run: dotnet publish
+        working-directory: ActionsKataExample
