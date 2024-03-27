@@ -1,8 +1,27 @@
-on: push
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
 
 jobs:
-    bash-example:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Print Hello message
-          run: echo "Hello"
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello message
+        run: echo "Hello"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Builds dotnet project
+        run: dotnet build
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Runs builded dotnet project
+        run: dotnet run
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publishes dotnet project
+        run: dotnet publish
