@@ -12,21 +12,22 @@ jobs:
         run: echo "Hello"
       - name: Print current dir
         run: ls -la
+        working-directory: ./ActionsKataExample
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Builds dotnet project
         run: dotnet build
-        working-directory: ActionsKataExample
+        working-directory: ./ActionsKataExample
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Runs builded dotnet project
         run: dotnet run
-        working-directory: ../../ActionsKataExample
+        working-directory: ./ActionsKataExample
   publish:
     runs-on: ubuntu-latest
     steps:
       - name: Publishes dotnet project
         run: dotnet publish
-        working-directory: ../../ActionsKataExample
+        working-directory: ./ActionsKataExample
