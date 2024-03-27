@@ -10,12 +10,14 @@ jobs:
     steps:
       - name: Print Hello message
         run: echo "Hello"
+      - name: Print current dir
+        run: ls -la
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Builds dotnet project
         run: dotnet build
-        working-directory: ../../ActionsKataExample
+        working-directory: ActionsKataExample
   test:
     runs-on: ubuntu-latest
     steps:
